@@ -72,33 +72,38 @@ public class Rock2 {
       
       // See who won
       if (personPlay.equals(computerPlay)) {
-        System.out.println("It's a tie!");
+        System.out.println("It's a tie! Try again.");
       } else if (personPlay.equals("R")) {
         if (computerPlay.equals("S")) {
           System.out.println("Rock crushes scissors. You win!");
           playerWins++;
+          totalGames--;
         } else {
           System.out.println("Paper covers rock. You lose!");
           cpuWins++;
+          totalGames--;
         }
       } else if (personPlay.equals("P")) {
         if (computerPlay.equals("R")) {
           System.out.println("Paper covers rock. You win!");
           playerWins++;
+          totalGames--;
         } else {
           System.out.println("Scissors cut paper. You lose!");
           cpuWins++;
+          totalGames--;
         }
       } else {
         if (computerPlay.equals("R")) {
           System.out.println("Rock crushes scissors. You lose!");
           cpuWins++;
+          totalGames--;
         } else {
           System.out.println("Scissors cut paper. You win!");
           playerWins++;
+          totalGames--;
         }
       }
-      totalGames--;
     }
     // Broadcast who won.
     System.out.println("The winner is...");
