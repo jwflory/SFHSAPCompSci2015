@@ -1,9 +1,0 @@
-import java.util.Scanner;
-
-public class LearnScan {
-  Scanner scanKB = new Scanner(System.in);
-  Scanner scanFile = new Scanner (new File("learn.txt"));
-  Scanner scanString = new Scanner ("string1");
-  String string1 = ("Hello world!");
-  
-}
