@@ -22,7 +22,7 @@ public class PowersOf2 {
         // in some cases
         
         // print a message saying how many powers of 2 will be printed
-        System.out.println(numPowersOf2 + " powers of 2 will be printed!");
+        System.out.println((numPowersOf2 + 1) + " powers of 2 will be printed!");
         
         // initialize exponent -- the first thing printed is 2 to the what?
         exponent = 0;
