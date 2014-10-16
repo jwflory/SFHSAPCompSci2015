@@ -35,7 +35,7 @@ public class Sales {
     System.out.println("\nSalesperson   Sales");
     System.out.println("--------------------");
     for (int i=0; i<sales.length; i++) {
-      System.out.println("     " + i + "         $" + sales[i]);
+      System.out.println("     " + (i + 1) + "         $" + sales[i]);
       sum += sales[i];
       if (sales[i] > sales[maximumSales]) {
         maximumSales = i;
@@ -46,8 +46,8 @@ public class Sales {
     
     System.out.println("\nTotal sales: $5" + sum);
     System.out.println("Average sales: $" + (sum / salespeople));
-    System.out.println("\nHighest sales by Salesperson " + maximumSales + " with $" + sales[maximumSales]);
-    System.out.println("Lowest sales by Salesperson " + minimumSales + " with $" + sales[minimumSales]);
+    System.out.println("\nHighest sales by Salesperson " + (maximumSales + 1) + " with $" + sales[maximumSales]);
+    System.out.println("Lowest sales by Salesperson " + (minimumSales + 1) + " with $" + sales[minimumSales]);
     
     System.out.println("\nEnter a monetary value to see how many salespeople met or exceeded that amount:");
     qualifier = scan.nextInt();
@@ -55,7 +55,7 @@ public class Sales {
     for (int i=0; i<sales.length; i++) {
       if (sales[i] >= qualifier) {
         qualifierTotal++;
-        System.out.println("Salesperson " + i + " met or exceeded $" + qualifier + " with a total of $" +
+        System.out.println("Salesperson " + (i + 1) + " met or exceeded $" + qualifier + " with a total of $" +
                            sales[i] + ".");
       }
     }
