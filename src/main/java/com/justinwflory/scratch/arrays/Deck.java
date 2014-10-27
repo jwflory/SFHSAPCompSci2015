@@ -5,6 +5,7 @@ public class Deck {
     for (int i=0; i<cards.length(); i++) {
       cards[i] = i;
     }
+    return true;
   }
   
   initialize();
