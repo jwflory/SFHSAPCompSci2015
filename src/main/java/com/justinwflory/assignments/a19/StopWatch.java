@@ -1,8 +1,7 @@
 /*
  * A stopwatch class that you can use to measure the time of a running program.
  */
-public class StopWatch
-{
+public class StopWatch {
   /*
    * instance fields
    */
@@ -13,16 +12,14 @@ public class StopWatch
   /*
    * construct a StopWatch that is in stopped state and has no time accumulated
    */
-  public StopWatch()
-  {
+  public StopWatch() {
     reset();
   }
   
   /*
    * start the stopwatch
    */
-  public void start()
-  {
+  public void start() {
     if (isRunning) return;  // was already started
     isRunning = true;
     startTime = System.currentTimeMillis();
@@ -31,8 +28,7 @@ public class StopWatch
   /*
    * stop the stopwatch; add accumulated time since last start to the elapsed time
    */
-  public void stop()
-  {
+  public void stop() {
     if (!isRunning) return;  // was already stopped
     elapsedTime = elapsedTime + (System.currentTimeMillis() - startTime);
     isRunning = false;
@@ -42,8 +38,7 @@ public class StopWatch
    * returns the total elapsed time; you can get the elapsed time without having to stop
    * the stopwatch first
    */
-  public long getElapsedTime()
-  {
+  public long getElapsedTime() {
     if (isRunning)
       return elapsedTime + (System.currentTimeMillis() - startTime);
     else
@@ -53,10 +48,8 @@ public class StopWatch
   /*
    * stops the watch and resets elapsed time to 0
    */
-  public void reset()
-  {
+  public void reset() {
     elapsedTime = 0;
     isRunning = false;
-  }
-  
+  } 
 }
