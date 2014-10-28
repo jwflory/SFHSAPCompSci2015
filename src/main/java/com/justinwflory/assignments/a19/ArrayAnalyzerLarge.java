@@ -1,48 +1,45 @@
 public class ArrayAnalyzerLarge {
   public static void main(String[] args) {
-    
     ArrayUtil au = new ArrayUtil();
+    //StopWatch sw = new StopWatch();
+    
+    int size = 10000000;
+    int valueSize = 250000001;
+    
+    for (int i=0; i<11; i++) {
+      int[] array = au.randomIntArray(size, valueSize);
+      size += 10000000;
+      
+      evalArray(array, i);
+    }
+  }
+  
+  private static void evalArray(int[] array, int count) {
     StopWatch sw = new StopWatch();
     
-    int min = 999999999;
-    int max = 0;
+    int min = array[0];
+    int max = array[0];
     int average = 0;
-    
-    int[] mainArray = createArray(10, 10000000);
-    au.print(mainArray);
     
     sw.reset();
     sw.start();
     
-    for (int i=0; i<mainArray.length; i++) {
-      if (mainArray[i] < min) {
-        min = mainArray[i];
+    for (int i=0; i<array.length; i++) {
+      if (array[i] < min) {
+        min = array[i];
       }
       
-      if (mainArray[i] > max) {
-        max = mainArray[i];
+      if (array[i] > max) {
+        max = array[i];
       }
       
-      average += mainArray[i];
+      average += array[i];
     }
-    average = average / mainArray.length;
+    average = average / array.length;
     
     sw.stop();
     
-    System.out.println("The minimum value is " + min + ".");
-    System.out.println("The maximum value is " + max + ".");
-    System.out.println("The average is " + average + ".");
-    System.out.println("Elapsed Time: " + sw.getElapsedTime() + " milliseconds");
+    System.out.println("[ARRAY #" + count + "] " + "Min: " + min + "; Max: " + max + "; Average: " + average +
+                       "; Elapsed Time: " + sw.getElapsedTime() + " milliseconds");
   }
-  
-  private static int[] createArray(int size, int increment) {
-    int[] returnArray = new int[size];
-    
-    for (int i=0; i < size; i++) {
-      returnArray[i] = (int)((Math.random() * increment));
-      increment += increment;
-    }
-    return returnArray;
-  }
-  
 }
