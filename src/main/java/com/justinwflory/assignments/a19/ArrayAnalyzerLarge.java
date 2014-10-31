@@ -2,7 +2,6 @@ public class ArrayAnalyzerLarge {
   public static void main (String[] args) {
     
     ArrayUtil au = new ArrayUtil();
-    //StopWatch sw = new StopWatch();
     
     int size = 10000000;
     int valueSize = 250000001;
