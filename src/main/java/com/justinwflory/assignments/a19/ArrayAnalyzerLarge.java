@@ -1,5 +1,6 @@
 public class ArrayAnalyzerLarge {
-  public static void main(String[] args) {
+  public static void main (String[] args) {
+    
     ArrayUtil au = new ArrayUtil();
     //StopWatch sw = new StopWatch();
     
@@ -19,7 +20,7 @@ public class ArrayAnalyzerLarge {
     
     int min = array[0];
     int max = array[0];
-    int average = 0;
+    long average = 0;
     
     sw.reset();
     sw.start();
