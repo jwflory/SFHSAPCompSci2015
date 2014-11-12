@@ -8,45 +8,41 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Shop
-{
-    public static void main (String[] args)
-    {
-
-	Item item;
-	String itemName;
-	double itemPrice;
-	int quantity;
-
-        // create an ArrayList of Items to be used as the shopping cart
-        // see Listings 6.19 and 6.20 for assistance
-
- 	Scanner scan = new Scanner(System.in);
-
-	String keepShopping = "y";
-
-	do 
-	    {
-		System.out.print ("Enter the name of the item: "); 
-		itemName = scan.nextLine();
-
-		System.out.print ("Enter the unit price: ");
-		itemPrice = scan.nextDouble();
-
-		System.out.print ("Enter the quantity: ");
-		quantity = scan.nextInt();
-
-		// *** create a new item and add it to the cart
-
-
-
-		// *** print the contents of the cart object using println
-
-
-		System.out.print ("Continue shopping (y/n)? ");
-		keepShopping = scan.nextLine();
-	    }
-	while (keepShopping.equals("y"));
-
+public class Shop {
+  public static void main (String[] args) {
+    Item item;
+    String itemName;
+    double itemPrice;
+    int quantity;
+    
+    // create an ArrayList of Items to be used as the shopping cart
+    // see Listings 6.19 and 6.20 for assistance
+    
+    Scanner scan = new Scanner(System.in);
+    
+    String keepShopping = "y";
+    
+    do {
+      System.out.print ("Enter the name of the item: "); 
+      itemName = scan.nextLine();
+      
+      System.out.print ("Enter the unit price: ");
+      itemPrice = scan.nextDouble();
+      
+      System.out.print ("Enter the quantity: ");
+      quantity = scan.nextInt();
+      
+      // *** create a new item and add it to the cart
+      
+      
+      
+      // *** print the contents of the cart object using println
+      
+      
+      System.out.print ("Continue shopping (y/n)? ");
+      keepShopping = scan.nextLine();
     }
+    while (keepShopping.equals("y"));
+    
+  }
 }
