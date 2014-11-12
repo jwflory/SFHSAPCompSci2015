@@ -35,6 +35,7 @@ public class TimeToShop {
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     boolean continueToShop = true;
+    ShoppingCart.intializeArray();
     
     while (continueToShop) {
       System.out.println("What item are you buying next?");
@@ -48,6 +49,7 @@ public class TimeToShop {
       int quantity = scan.nextInt();
       
       System.out.println("DEBUG: " + itemName + " " + price + " " + quantity);
+      System.out.println("DEBUG: Array size is " + ShoppingCart.cart.length);
       
       ShoppingCart.addToCart(itemName, price, quantity);
       System.out.println("Your cart's current contents are:");

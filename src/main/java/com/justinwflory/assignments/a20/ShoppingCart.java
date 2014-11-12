@@ -1,3 +1,4 @@
+
 // **********************************************************************
 //   ShoppingCart.java
 //
@@ -31,6 +32,9 @@ public class ShoppingCart {
     capacity = 5;
     itemCount = 0;
     totalPrice = 0.0;
+  }
+  
+  public static void intializeArray() {
     cart = new String[capacity];
   }
   
