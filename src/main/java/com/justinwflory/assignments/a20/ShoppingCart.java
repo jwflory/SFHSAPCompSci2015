@@ -60,7 +60,7 @@ public class ShoppingCart {
     NumberFormat fmt = NumberFormat.getCurrencyInstance();
     
     String contents = "\nShopping Cart\n";
-    contents += "\nItem\tItem Price\tQuantity\tTotal\n";
+    contents += "\nItem\tPrice\tQuantity\tTotal\n";
     
     for (int i=0; i < itemCount; i++) {
       contents += cart[i].toString() + "\n";

@@ -51,9 +51,6 @@ public class TimeToShop {
       int quantity = scan.nextInt();
       scan.nextLine();
       
-      System.out.println("DEBUG: " + itemName + " " + price + " " + quantity);
-      //System.out.println("DEBUG: Array size is " + cart.length);
-      
       cart.addToCart(itemName, price, quantity);
       
       System.out.println(cart.toString());
