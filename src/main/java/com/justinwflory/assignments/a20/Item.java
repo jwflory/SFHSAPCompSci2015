@@ -8,8 +8,7 @@
 
 import java.text.NumberFormat;
 
-public class Item
-{
+public class Item {
   private String name;
   private double price;
   private int quantity;
@@ -17,8 +16,7 @@ public class Item
   // -------------------------------------------------------
   //  Create a new item with the given attributes.
   // -------------------------------------------------------
-  public Item (String itemName, double itemPrice, int numPurchased)
-  {
+  public Item (String itemName, double itemPrice, int numPurchased) {
     name = itemName;
     price = itemPrice;
     quantity = numPurchased;
@@ -27,8 +25,7 @@ public class Item
   // -------------------------------------------------------
   //   Return a string with the information about the item
   // -------------------------------------------------------
-  public String toString ()
-  {
+  public String toString () {
     NumberFormat fmt = NumberFormat.getCurrencyInstance();
     
     return (name + "\t" + fmt.format(price) + "\t" + quantity + "\t"
@@ -38,24 +35,21 @@ public class Item
   // -------------------------------------------------
   //   Returns the unit price of the item
   // -------------------------------------------------
-  public double getPrice()
-  {
+  public double getPrice() {
     return price;
   }
   
   // -------------------------------------------------
   //   Returns the name of the item
   // -------------------------------------------------
-  public String getName()
-  {
+  public String getName() {
     return name;
   }
   
   // -------------------------------------------------
   //   Returns the quantity of the item
   // -------------------------------------------------
-  public int getQuantity()
-  {
+  public int getQuantity() {
     return quantity;
   }
 }  
