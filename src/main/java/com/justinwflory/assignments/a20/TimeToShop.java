@@ -33,13 +33,15 @@ import java.util.Scanner;
 
 public class TimeToShop {
   public static void main(String[] args) {
-    Scanner scan = new Scanner(System.in);
-    boolean continueToShop = true;
-    ShoppingCart.intializeArray();
+    ShoppingCart cart = new ShoppingCart();
     
-    while (continueToShop) {
+    Scanner scan = new Scanner(System.in);
+    boolean continueShop = true;
+    String continuePrompt = "";
+    
+    while (continueShop) {
       System.out.println("What item are you buying next?");
-      String itemName = scan.next();
+      String itemName = scan.nextLine();
       
       System.out.println("How much does " + itemName + " cost? Please enter the EXACT cost.");
       System.out.print("$");
@@ -47,14 +49,21 @@ public class TimeToShop {
       
       System.out.println("How much of this item would you like to purchase?");
       int quantity = scan.nextInt();
+      scan.nextLine();
       
       System.out.println("DEBUG: " + itemName + " " + price + " " + quantity);
-      System.out.println("DEBUG: Array size is " + ShoppingCart.cart.length);
+      //System.out.println("DEBUG: Array size is " + cart.length);
       
-      ShoppingCart.addToCart(itemName, price, quantity);
-      System.out.println("Your cart's current contents are:");
-      for (int i=0; i < ShoppingCart.cart.length; i++) {
-        System.out.println(ShoppingCart.cart[i]);
+      cart.addToCart(itemName, price, quantity);
+      
+      System.out.println(cart.toString());
+      
+      System.out.print("Continue shopping (y/n)? ");
+      continuePrompt = scan.nextLine();
+      if (continuePrompt.equals("y") || continuePrompt.equals("Y")) {
+        continueShop = true;
+      } else {
+        continueShop = false;
       }
     }
   }
