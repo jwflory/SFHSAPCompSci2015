@@ -28,7 +28,7 @@ public class ShoppingCart {
   //  the constructor method
   // -----------------------------------------------------------
   public ShoppingCart() {
-    capacity = 5;
+    capacity = 2;
     itemCount = 0;
     totalPrice = 0.0;
     
@@ -80,6 +80,7 @@ public class ShoppingCart {
     for (int i=0; i < cart.length; i++) {
       temp[i] = cart[i];
     }
+    cart = temp;
     capacity += 3;
   }
 }
