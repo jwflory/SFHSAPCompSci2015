@@ -25,6 +25,9 @@ public class Card {
  public Card(String cardRank, String cardSuit, int cardPointValue) {
    boolean throwSuitError = false;
    boolean throwRankError = false;
+   String objS = "";
+   String objR = "";
+   int objPV = 0;
    
    for (int i=0; i<acceptableSuits.length; i++) {
      if (cardSuit == acceptableSuits[i]) {
@@ -55,6 +58,10 @@ public class Card {
    suit = cardSuit;
    rank = cardRank;
    pointValue = cardPointValue;
+   
+   cardSuit = objS;
+   cardRank = objR;
+   cardPointValue = objPV;
  }
 
 
@@ -62,24 +69,24 @@ public class Card {
   * Accesses this Card's suit.
   * @return this Card's suit.
   */
- public String suit(Card card) {
-   return card.cardSuit;
+ public String suit() {
+   return suit;
  }
 
  /**
   * Accesses this Card's rank.
   * @return this Card's rank.
   */
- public String rank(Card card) {
-   return card.cardRank;
+ public String rank() {
+   return rank;
  }
 
    /**
   * Accesses this Card's point value.
-  * @return this <code>Card's</code> point value.
+  * @return this Card's point value.
   */
- public int pointValue(Card card) {
-   return card.cardPointValue;
+ public int pointValue() {
+   return pointValue;
  }
 
  /** Compare this card with the argument.
@@ -88,8 +95,8 @@ public class Card {
   *              are equal to those of the argument;
   *         false otherwise.
   */
- public boolean matches(Card card, Card otherCard) {
-   if (card.cardRank == otherCard.cardRank && card.cardSuit == otherCard.cardSuit && card.cardPointValue == otherCard.cardPointValue) {
+ public boolean matches(Card otherCard) {
+   if (rank == otherCard.suit() && suit == otherCard.rank() && pointValue == otherCard.pointValue()) {
      return true;
    } else return false;
  }
@@ -104,8 +111,8 @@ public class Card {
   * @return a String containing the rank, suit,
   *         and point value of the card.
   */
- @Override
+ //@Override
  public String toString(Card card) {
-   return card.cardRank + " of " + card.cardSuit + " (point value = " + card.cardPointValue + ")";
+   return rank() + " of " + suit() + " (point value = " + pointValue() + ")";
  }
 }
