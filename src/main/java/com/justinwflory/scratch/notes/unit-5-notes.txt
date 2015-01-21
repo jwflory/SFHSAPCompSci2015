@@ -1,0 +1,96 @@
+﻿Unit 5 Notes
+AP Computer Science A – O'Connor
+
+ I. Elevens Assignment — Discussion
+ A. What is intended to be dcreated in a card:
+ i. Suit, rank, point value
+ a) Suit: Heart, spade, club, diamond
+ b) Rank: Numerical value, jack, queen, king, ace
+ c) Point value: Differs in any given game
+ ii. Suit and rank will never change, and they should be enforced by the code
+ iii. Point value can vary and should be set in the program
+ II. Throwing Exceptions
+ A. Types of Exceptions
+ i. Illegal Argument Exception
+ a) Thrown any time you have a constructor or method that takes a parameter and somebody has provided a value that doesn't make sense
+ b) Example: Card suit 'orange' – that is impossible
+ ii. Illegal State Exception
+ a) Whatever value is in the instance data becomes a value that is not allowed
+ b) Example: If you wanted to add two similar cards together (e.g. 2 of clubs and 7 of clubs you get a 9 of clubs), that is valid; but a 10 of hearts and 9 of hearts would be a 19 of hearts, which does not exist — thus, illegal state exception
+ iii. No Such Element Exception
+ a) When a particular element or piece of data cannot be found
+ b) Example: Have a deck of cards and you deal cards out from the deck, and then half the deck has been dealt. Then program asks for 7 of clubs, but the card may have been dealt. Thus, no such element is found in the collection of data.
+ B. Throwing an Exception
+ i. Example:
+if (rank < 2 || rank > 14) {
+throw new IllegalArgumentException(“Rank has to be between two and fourteen”);
+}
+ III. Gigo: Garbage In, Garbage Out
+ A. If you allow garbage data into the program, you're going to get garbage data out of the program — avoid this from happening
+ B. For Elevens lab: Checking to see if data was invalid was most appropriate in the constructor, and throwing exceptions for “garbage data” if the improper value was entered
+ IV. null variables
+ A. Pointer to nothing
+ i. Example:
+int[] a;
+x = a[4];
+ ii. Results in NullPointerException
+ V. this reference
+ A. Reference that allows an object to refer to itself
+ B. “The this keyword lets an object play with itself.”
+ C. Usage
+ i. Sometimes in accessor methods
+ ii. In the case of the Elevens lab, like the following:
+String rank;
+Card (String rank) {
+this.rank = rank;
+}
+matches(Card otherCard) {
+this.rank.equals(otherCard.rank);
+// Adding this is preferable for self-documenting code
+}
+ VI. Aliases
+ A. Reference variables that point to the same object
+String a = “H”;
+String b = “H”;
+b = a;
+// And that's how you make an alias – be careful
+ VII. Passing Objects as Parameters
+ A. Example in Cards.java file
+matches(Card otherCard) {
+// The above is passing in a REFERENCE to the actual object in memory – no copies!
+}
+ B. Can cause issues because you aren't passing copies, like with primitive data
+ i. Like giving someone your keys — they have full access to whatever object you are passing
+ ii. You are  passing real references in memory
+ VIII. Static Keyword
+ A. Commonly seen with methods and variables
+ i. Always seen with the main method of a class
+ ii. Static methods: Methods that can be called without creating an object
+ a) Like the Math class
+ b) You call it with the class name as compared to going the long way
+ iii. Static Variables: Constants, 
+public final static int K = 50;
+ a) Using it with a variable tells us that this variable will only be used ONCE no matter how many different times it is implemented
+ b) Also good for “global” variables
+Sometimes it is good to initialize static variables instead of in the constructor, because then every time it is called, it would be reset to whatever the initial value was.
+ IX. Interfaces
+ A. Defines common behavior that needs to exist in multiple classes
+public interface Comparable {
+public int compareTo(Object other);
+}
+
+ X. Collections
+ A. Examples: Arrays, Lists
+ B. Things put into a List can be easily added, removed, selected, or called upon
+ i. ArrayList is a type of List; others include LinkedList, Queue, Stack
+ ii. ArrayLists are distinguished by their ability to be indexed
+ C. Determining the type of collection to use at the beginning is important before going forward
+ D. Activity 2 of Elevens
+ i. Declaring a List as a List and not a specific type of list (i.e. ArrayList) makes it possible to determine which one to use in later subclasses
+ a) Leaves flexibility of implemented the card's instance field with any data type that corresponds to the List class
+ ii. Assumed activities of a deck of cards: shuffle, deal
+ iii. Needs a collection for dealt and undealt cards to keep track of what not to deal, e.g. dealt ArrayList
+ a) However, this is not allowed in the Elevens lab
+ b) This is up to the Deck class to determine — cards don't care about whether or not they have been dealt
+ iv. When passing arrays, make sure they do not pass in a NullPointer — make sure the arrays are the same size and that they are not null
+ a) Then loop through the arrays and begin creating cards
