@@ -38,11 +38,15 @@ public class Deck {
   * @param values is an array containing all of the card point values.
   */
  public Deck(String[] ranks, String[] suits, int[] values) {
-   ArrayList<Card> cards = new ArrayList<Card>();
-   for (int i=0; i<ranks.length; i++) {
-     Card card = new Card(ranks[0], suits[0], values[0]);
-     cards.add(card);
+   cards = new ArrayList<Card>();
+   
+   for (int i=0; i<suits.length; i++) {
+     for (int j=0; j<ranks.length; j++) {
+       Card card = new Card(ranks[j], suits[i], values[j]);
+       cards.add(card);
+     }
    }
+   
    numUndealtCards = cards.size();
    shuffle();
  }
@@ -53,7 +57,21 @@ public class Deck {
   * 4 traditional suits, where a "two" is worth 1 point and an "ace" is worth 13 points.
   */
  public Deck() {
-   /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+   cards = new ArrayList<Card>();
+   String[] ranks = {"two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+     "jack", "queen", "king", "ace"};
+   String[] suits = {"spades", "hearts", "clubs", "diamonds", "spades", "hearts", "clubs", "diamonds", "spades", "hearts", "clubs", "diamonds", "spades"};
+   int[] values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+   
+   for (int i=0; i<suits.length; i++) {
+     for (int j=0; j<ranks.length; j++) {
+       Card card = new Card(ranks[j], suits[i], values[j]);
+       cards.add(card);
+     }
+   }
+   
+   numUndealtCards = cards.size();
+   shuffle();
  }
  
 
