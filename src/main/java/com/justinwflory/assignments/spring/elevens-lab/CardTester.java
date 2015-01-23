@@ -18,8 +18,6 @@ public class CardTester {
   * @param args is not used.
   */
  public static void main(String[] args) {
-  /* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-   
    Card badCard;
    
    // Item 1 - commented out after checking that expected exception was thrown
