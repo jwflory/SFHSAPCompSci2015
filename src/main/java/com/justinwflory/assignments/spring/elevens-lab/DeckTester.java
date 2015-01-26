@@ -14,16 +14,15 @@ public class DeckTester {
   */
  public static void main(String[] args) {
    Deck badDeck;
-   Deck testDeck;
-   
-   Deck deck1;
-   Deck deck2;
-   Deck deck3;
    
    String[] ranks = {"two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
     "jack", "queen", "king", "ace"};
    String[] suits = {"spades", "hearts", "clubs", "diamonds"};
    int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+   
+   Deck deck1 = new Deck(ranks, suits, values);
+   Deck deck2 = new Deck();
+   //Deck testDeck = new Deck(nullified, hahah, breakme);
    
    System.out.println("Deck 1 toString method reports:");
    System.out.println("    " + deck1);  // the call to toString is implied by referencing deck1 in a String context

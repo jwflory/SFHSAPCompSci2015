@@ -91,7 +91,3 @@ public class Shuffler {
    
  }
 }
-
-//
-// SFHS AP Computer Science 2015
-//
