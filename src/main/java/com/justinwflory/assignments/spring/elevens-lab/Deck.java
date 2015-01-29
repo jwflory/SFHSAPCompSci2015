@@ -61,7 +61,7 @@ public class Deck {
    String[] ranks = {"two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
      "jack", "queen", "king", "ace"};
    String[] suits = {"spades", "hearts", "clubs", "diamonds", "spades", "hearts", "clubs", "diamonds", "spades", "hearts", "clubs", "diamonds", "spades"};
-   int[] values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+   int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
    
    for (int i=0; i<suits.length; i++) {
      for (int j=0; j<ranks.length; j++) {
