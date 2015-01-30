@@ -1,3 +1,20 @@
+//TODO Check that all arrays have the same length, otherwise, throw error
+//TODO Check that all arrays are not null, otherwise, throw error
+
+/*
+ * Notes for Board.java:
+ * - state
+ *   - Deck d;
+ *   - Card[] board;
+ *   - int gamesPlayed;
+ *   - int gamesWon;
+ *   - ArrayList<Card> selectedCards;
+ * - behavior
+ *   - replace: check that selected cards are valid; if true, remove and replace if cards left; if false, reject
+ *     - Think like: while(!isEmpty) fillSlot;
+ *   - restart: empty slots (handled by replacement in array??), shuffle, deal nine cards
+ */
+
 /**
  * This is a class that tests the Deck class.
  * SFHS AP Computer Science A 2015

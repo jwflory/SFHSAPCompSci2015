@@ -1,3 +1,5 @@
+//TODO Remove shuffle method from constructor (why? think to discussion)
+
 import java.util.List;
 import java.util.ArrayList;
 
