@@ -26,32 +26,29 @@ public class ElevensBoard {
   /**
    * Flag used to control debugging print statements.
    */
-  private static final boolean I_AM_DEBUGGING = true;
+  private static final boolean DEBUG = true;
   
   
   /**
-   * Creates a new <code>ElevensBoard</code> instance.
+   * Creates a new <code>ElevensBoard</code> instance using a specified deck size.
+   * @param deckSize the number of cards in the deck
    */
   public ElevensBoard() {
-    /* *** TO BE IMPLEMENTED IN ACTIVITY 7 *** */
     // create the cards array
-    Card[] cards;
+    cards = new Card[BOARD_SIZE];
     
-    /* *** TO BE IMPLEMENTED IN ACTIVITY 7 *** */
     // create a deck using the default Deck constructor
     deck = new Deck();
     
     // example of how to put debugging code into a class that only runs
     // during debugging, and does not run under normal operation
-    if (I_AM_DEBUGGING) {
+    if (DEBUG) {
       System.out.println(deck);
       System.out.println("----------");
     }
     
-    /* *** TO BE IMPLEMENTED IN ACTIVITY 7 *** */
     // prepare the board for a new game
-    
-    
+    dealMyCards();
   }
   
   /**
@@ -78,8 +75,10 @@ public class ElevensBoard {
    * @return true if this board is empty; false otherwise.
    */
   public boolean isEmpty() {
-    /* *** TO BE IMPLEMENTED IN ACTIVITY 7 *** */
-    return false;
+    for (int i=0; i<cards.length; i++) {
+      if (cards[i] != null) return false;
+    }
+    return true;
   }
   
   /**
@@ -88,8 +87,7 @@ public class ElevensBoard {
    * @param k the index of the card to be dealt.
    */
   public void deal(int k) {
-    /* *** TO BE IMPLEMENTED IN ACTIVITY 7 *** */
-    
+    this.cards[k] = this.deck.deal();
   }
   
   /**
@@ -99,8 +97,7 @@ public class ElevensBoard {
    * The Deck class method called will vary depending on the name you chose in your class.
    */
   public int deckUndealtCards() {
-    /* *** TO BE IMPLEMENTED IN ACTIVITY 7 *** */
-    return 1;
+    return deck.numUndealtCards();
   }
   
   /**
@@ -202,7 +199,7 @@ public class ElevensBoard {
    */
   private void dealMyCards() {
     for (int k = 0; k < cards.length; k++) {
-      cards[k] = deck.deal();
+      deal(k);
     }
   }
   

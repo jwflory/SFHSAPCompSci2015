@@ -10,6 +10,9 @@ import java.util.List;
 public class BoardTester {
   public static void main(String[] args) {
     ElevensBoard board = new ElevensBoard();
+    for (int i=0; i<board.boardSize(); i++) {
+      board.deal(i);
+    }
     
     // using the ElevensBoard toString
     System.out.println();
