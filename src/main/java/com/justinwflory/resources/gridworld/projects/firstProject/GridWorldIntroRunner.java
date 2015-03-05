@@ -39,7 +39,7 @@ public class GridWorldIntroRunner
       //  to see the different ways worlds can be created
       
       // code to create a default world
-      //ActorWorld world = new ActorWorld();
+      ActorWorld world = new ActorWorld();
       
       // code to create a world with a BoundedGrid that is 30 rows x 50 cols instead of the default 10x10
       //BoundedGrid<Actor> myGrid = new BoundedGrid<Actor>(30, 50);
