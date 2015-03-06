@@ -10,7 +10,7 @@ public class CBElevensBoard extends CBBoard
 
   private static final int[] POINT_VALUES = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0 };
 
-  public ElevensBoard()
+  public CBElevensBoard()
   {
     super(9, RANKS, SUITS, POINT_VALUES);
   }

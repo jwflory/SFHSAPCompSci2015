@@ -104,7 +104,16 @@ public class Deck {
    * Randomly permute the given collection of cards
    * and reset the size to represent the entire deck.
    */
-  public void shuffle() {
+  public void shuffle() {    
+    for (int i=this.cards.size() - 1; i>0; i--) {
+      int oneUp = i + 1;
+      int temp = 0;
+      int randomInt = (int)(Math.random() * oneUp) + temp;
+      Card tempCard = (Card)this.cards.get(i);
+      this.cards.set(randomInt, this.cards.get(randomInt));
+      this.cards.set(randomInt, tempCard);
+    }
+    numUndealtCards = this.cards.size();
   }
   
   /**

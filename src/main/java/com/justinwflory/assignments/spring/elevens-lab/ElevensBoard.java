@@ -48,6 +48,7 @@ public class ElevensBoard {
     }
     
     // prepare the board for a new game
+    deck.shuffle();
     dealMyCards();
   }
   

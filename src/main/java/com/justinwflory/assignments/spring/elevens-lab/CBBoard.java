@@ -6,7 +6,7 @@ public abstract class CBBoard
   private Deck deck;
   private static final boolean I_AM_DEBUGGING = false;
 
-  public Board(int paramInt, String[] paramArrayOfString1, String[] paramArrayOfString2, int[] paramArrayOfInt)
+  public CBBoard(int paramInt, String[] paramArrayOfString1, String[] paramArrayOfString2, int[] paramArrayOfInt)
   {
     this.cards = new Card[paramInt];
     this.deck = new Deck(paramArrayOfString1, paramArrayOfString2, paramArrayOfInt);
