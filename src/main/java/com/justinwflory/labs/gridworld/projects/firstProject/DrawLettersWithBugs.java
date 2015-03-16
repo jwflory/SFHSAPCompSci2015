@@ -8,18 +8,17 @@ import java.util.Scanner;
 
 public class DrawLettersWithBugs {
   
-  private static final boolean DEBUG = true;
+  private static int ROWS = 40;
+  private static int COLS = 100;
+  private static final boolean DEBUG = false;
   
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
-    BoundedGrid<Actor> myGrid = new BoundedGrid<Actor>(25, 25);
+    BoundedGrid<Actor> myGrid = new BoundedGrid<Actor>(ROWS, COLS);
     ActorWorld world = new ActorWorld(myGrid);
     int totalColumns = 0;
+    int startRow = 0;
     char currentChar;
-    
-    //world.add(new Bug());
-    //world.add(new Location(2, 3), new Bug(Color.GREEN));
-    //world.add(new Location(7, 8), new Rock(Color.BLUE));
     
     System.out.println("Please enter a word you would like converted to dot matrix. A-Z only.");
     String magicWord = scan.next();
@@ -39,8 +38,13 @@ public class DrawLettersWithBugs {
     if (DEBUG) System.out.println("magicWord = " + magicWord);
     
     for (int i=0; i<magicWord.length(); i++) {
-      currentChar = magicWord.charAt(i);
-      totalColumns += drawLetter(world, 0, 0, currentChar);
+      if (totalColumns >= COLS - 4) {
+        startRow += 12;
+        totalColumns = 0;
+      }
+      totalColumns += drawLetter(world, startRow, totalColumns, magicWord.charAt(i));
+      totalColumns++; 
+    
       if (DEBUG) System.out.println(totalColumns);
     }
     
@@ -48,6 +52,10 @@ public class DrawLettersWithBugs {
   }
   
   public static int drawLetter(ActorWorld myWorld, int startRow, int startCol, char letter) {
+    Color lastColor = Color.GRAY;
+    Color curColor = Color.MAGENTA;
+    int randomColorIndex = 0;
+    
     int[][] letterA =
     { { 0, 1, 0 },
       { 0, 1, 0 },
@@ -360,20 +368,19 @@ public class DrawLettersWithBugs {
       { 1, 0, 0 },
       { 1, 1, 1 }  };
     
-    int[][] letterNull =
-    { { 1, 1, 1 },
-      { 1, 1, 1 },
-      { 1, 1, 1 },
-      { 1, 1, 1 },
-      { 1, 1, 1 },
-      { 1, 1, 1 },
-      { 1, 1, 1 },
-      { 1, 1, 1 },
-      { 1, 1, 1 },
-      { 1, 1, 1 }  };
+    int[][] letterEmpty =
+    { { 0, 0, 0 },
+      { 0, 0, 0 },
+      { 0, 0, 0 },
+      { 0, 0, 0 },
+      { 0, 0, 0 },
+      { 0, 0, 0 },
+      { 0, 0, 0 },
+      { 0, 0, 0 },
+      { 0, 0, 0 },
+      { 0, 0, 0 }  };
     
     int[][] myLetter;
-    int direction = ((int)(Math.random() * 9));
     
     switch(letter) {
       case 'a': myLetter = letterA;
@@ -428,15 +435,39 @@ public class DrawLettersWithBugs {
       break;
       case 'z': myLetter = letterZ;
       break;
-      default:  myLetter = letterNull;
+      default:  myLetter = letterEmpty;
       break;
     }
     
-    for (startRow = startRow; startRow<myLetter.length; startRow++) {
-      for (startCol = startCol; startCol<myLetter[startRow].length; startCol++) {
-        if (myLetter[startRow][startCol] == 1) {
-          myWorld.add(new Location(startRow, startCol), new Bug());
-          // Random colors...? http://docs.oracle.com/javase/8/docs/api/java/awt/Color.html
+    Color[] allColors = {
+      Color.BLACK,
+      Color.BLUE,
+      Color.CYAN,
+      Color.DARK_GRAY,
+      Color.GRAY,
+      Color.GREEN,
+      Color.LIGHT_GRAY,
+      Color.MAGENTA,
+      Color.ORANGE,
+      Color.PINK,
+      Color.RED,
+      Color.WHITE,
+      Color.YELLOW
+    };
+    
+    for (int i=0; i<myLetter.length; i++) {
+      for (int j=0; j<myLetter[i].length; j++) {
+        if (myLetter[i][j] == 1) {
+          while (curColor == lastColor) {
+            randomColorIndex = ((int) (Math.random() * allColors.length));
+            curColor = allColors[randomColorIndex];
+            if (DEBUG) System.out.println("curColor = " + curColor + "; lastColor = " + lastColor);
+          }
+          Bug bug = new Bug(curColor);
+          bug.setDirection((int)(Math.random() * 8) * 45);
+          myWorld.add(new Location(startRow + i, startCol + j), bug);
+          lastColor = curColor;
+          if (DEBUG) System.out.println("You made it to the end of the loop.");
         }
       }
     }
