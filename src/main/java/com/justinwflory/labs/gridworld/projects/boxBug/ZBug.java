@@ -3,7 +3,7 @@ import info.gridworld.actor.Bug;
 import info.gridworld.grid.*;
 
 public class ZBug extends Bug {
-  private final int DEFAULT_SIDE_LENGTH = 6;
+  private static final int DEFAULT_SIDE_LENGTH = 6;
   private int steps;
   private int rotateCount;
   private int sideLength;
