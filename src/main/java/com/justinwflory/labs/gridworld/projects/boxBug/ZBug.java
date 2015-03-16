@@ -50,8 +50,8 @@ public class ZBug extends Bug {
   
   /**
    * Checks to see if the next location is a valid move.
-   * @return <code>true</true> if the next location is empty,
-   * <code>false</false> if occupied by another Actor
+   * @return <code>true</code> if the next location is empty,
+   * <code>false</code> if occupied by another Actor
    */
   public boolean nextMove() {
     Grid<Actor> curGrid = getGrid();
