@@ -27,7 +27,8 @@ public class ZBugInherited extends ShapeBug {
    * Moves to the next location of the Z.
    */
   public void act() {
-    if (steps < sideLength && nextMove()) {
+    /*
+    if (getSteps() < getSideLength() && nextMove()) {
       move();
       steps++;
     } else if (nextMove() && rotateCount == 0) {
@@ -39,6 +40,7 @@ public class ZBugInherited extends ShapeBug {
       steps = 0;
       rotateCount++;
     }
+    */
   }
   
   /**

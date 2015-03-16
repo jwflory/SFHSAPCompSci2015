@@ -59,6 +59,13 @@ public abstract class ShapeBug extends Bug {
   }
   
   /**
+   * Access the value in <code>steps</code>.
+   */
+  public int getSteps() {
+    return steps;
+  }
+  
+  /**
    * Set the value in <code>sideLength</code>.
    */
   public void setSideLength(int sideLength) {

@@ -1,6 +1,9 @@
 import info.gridworld.actor.Bug;
 
 public class CustomBug extends Bug {
+  private static final int LONG_SIDES = 2;
+  private static final int SHORT_SIDES = 4;
+  
   private int doubleSideLength;
   private int rotateCount;
   private int sideLength;
@@ -25,25 +28,28 @@ public class CustomBug extends Bug {
     if (steps < sideLength && canMove()) {
       move();
       steps++;
-    } else if ((rotateCount == 0 || rotateCount == 2) && canMove()) {
-      turn();
-      steps = 0;
-      rotateCount++;
-    } else if (rotateCount == 1 && canMove()) {
-      turn();
-      turn();
-      steps = 0;
-      rotateCount++;
     } else if ((rotateCount == 4 || rotateCount == 6) && canMove() && steps < doubleSideLength && canMove()) {
       move();
       steps++;
-    } else if ((rotateCount == 3 || rotateCount == 5 || rotateCount <= 7) && canMove()) {
-      turn();
-      turn();
-      steps = 0;
-      rotateCount++;
+    } else if ((rotateCount == 0 || rotateCount == 2) && canMove()) {
+      diagonalTurn();
+    } else if (canMove() && (rotateCount == 1 || rotateCount == 3 || rotateCount == 5 || rotateCount == 7 || rotateCount)) {
+      directTurn();
     } else {
       rotateCount = 0;
     }
+  }
+  
+  public void directTurn() {
+    turn();
+    turn();
+    steps = 0;
+    rotateCount++;
+  }
+  
+  public void diagonalTurn() {
+    turn();
+    steps = 0;
+    rotateCount++;
   }
 }
