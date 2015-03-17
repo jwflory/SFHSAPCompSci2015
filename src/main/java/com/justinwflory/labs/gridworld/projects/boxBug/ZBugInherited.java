@@ -10,8 +10,7 @@ public class ZBugInherited extends ShapeBug {
    * @param length the side length
    */
   public ZBugInherited() {
-    super(DEFAULT_SIDE_LENGTH);
-    this.setDirection(90);
+    this(DEFAULT_SIDE_LENGTH);
   }
   
   /**
@@ -26,21 +25,41 @@ public class ZBugInherited extends ShapeBug {
   /**
    * Moves to the next location of the Z.
    */
-  public void act() {
-    /*
-    if (getSteps() < getSideLength() && nextMove()) {
-      move();
-      steps++;
-    } else if (nextMove() && rotateCount == 0) {
+  /*
+   public void act() {
+   if (getSteps() < getSideLength() && nextMove()) {
+   move();
+   steps++;
+   } else if (nextMove() && rotateCount == 0) {
+   this.setDirection(225);
+   steps = 0;
+   rotateCount++;
+   } else if (nextMove() && rotateCount == 1) {
+   this.setDirection(90);
+   steps = 0;
+   rotateCount++;
+   }
+   */
+  
+  /**
+   * Method for determining whether the Z has reached the endof its side, thus determining whether or not it has to
+   * turn its direction.
+   */
+  public void endOfSide() {
+    if (getRotateCount() == 0 && nextMove()) {
       this.setDirection(225);
-      steps = 0;
-      rotateCount++;
-    } else if (nextMove() && rotateCount == 1) {
+    } else if (getRotateCount() == 1 && nextMove()) {
       this.setDirection(90);
-      steps = 0;
-      rotateCount++;
     }
-    */
+  }
+  
+  /**
+   * Determine whether or not the bug should continue to move, if
+   * necessary.
+   */
+  public boolean keepMoving() {
+    if (getRotateCount() < 3) return true;
+    else return false;
   }
   
   /**
