@@ -40,6 +40,13 @@ public class AllBugRunner implements Colors {
     z2.setColor(allColors[(int) (Math.random() * allColors.length)]);
     Rock zRock = new Rock(allColors[(int) (Math.random() * allColors.length)]);
     
+    CustomBug custom1 = new CustomBug(3);
+    custom1.setColor(allColors[(int) (Math.random() * allColors.length)]);
+    
+    CustomBug custom2 = new CustomBug(11);
+    custom2.setColor(allColors[(int) (Math.random() * allColors.length)]);
+    Rock customRock = new Rock(allColors[(int) (Math.random() * allColors.length)]);
+    
     world.add(new Location(7, 8), alice);
     world.add(new Location(5, 5), bob);
     world.add(new Location(15, 20), circle1);
@@ -51,6 +58,9 @@ public class AllBugRunner implements Colors {
     world.add(new Location(20, 35), z1);
     world.add(new Location(35, 60), z2);
     world.add(new Location(53, 69), zRock);  
+    world.add(new Location(25, 5), custom1);
+    world.add(new Location(70, 70), custom2);
+    world.add(new Location(22, 5), customRock);
     if (SAFETY) for (int i=0; i<200; i++) world.add(new Location(0, i), new Rock());
 
     world.show();
