@@ -1,7 +1,7 @@
 import java.awt.Color;
 
 public interface Colors {
-  Color[] allColors = {
+  Color[] colors = {
       Color.BLACK,
       Color.BLUE,
       Color.CYAN,

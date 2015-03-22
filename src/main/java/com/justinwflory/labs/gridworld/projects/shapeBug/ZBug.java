@@ -2,14 +2,14 @@ import info.gridworld.actor.Actor;
 import info.gridworld.actor.Bug;
 import info.gridworld.grid.*;
 
-public class ZBugInherited extends ShapeBug {
+public class ZBug extends ShapeBug {
   private static final int DEFAULT_SIDE_LENGTH = 6;
   
   /**
    * Constructs a Z-bug that forms a "Z" of a side length of 6
    * @param length the side length
    */
-  public ZBugInherited() {
+  public ZBug() {
     this(DEFAULT_SIDE_LENGTH);
   }
   
@@ -17,7 +17,7 @@ public class ZBugInherited extends ShapeBug {
    * Constructs a Z-bug that forms a "Z" of a given side length
    * @param length the side length
    */
-  public ZBugInherited(int length) {
+  public ZBug(int length) {
     super(length);
     this.setDirection(90);
   }

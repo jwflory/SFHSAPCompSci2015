@@ -12,12 +12,12 @@ public abstract class ShapeRunner implements Colors {
     ActorWorld world = new ActorWorld(grid);
     
     ZBug z1 = new ZBug();
-    z1.setColor(allColors[(int) (Math.random() * allColors.length)]);
+    z1.setColor(colors[(int) (Math.random() * colors.length)]);
     
     ZBug z2 = new ZBug(11);
-    z2.setColor(allColors[(int) (Math.random() * allColors.length)]);
+    z2.setColor(colors[(int) (Math.random() * colors.length)]);
     
-    Rock zRock = new Rock(allColors[(int) (Math.random() * allColors.length)]);
+    Rock zRock = new Rock(colors[(int) (Math.random() * colors.length)]);
 
     world.add(new Location(10, 5), z1);
     world.add(new Location(25, 20), z2);

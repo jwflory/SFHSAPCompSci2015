@@ -10,9 +10,12 @@ public abstract class ShapeBug extends Bug {
    * @param length the side length
    */
   public ShapeBug(int sideLength) {
-    this.sideLength = sideLength;
-    steps = 0;
-    rotateCount = 0;
+    if (sideLength < 1) throw new IllegalArgumentException("The side length (" + sideLength + ") must be positive.");
+    else {
+      this.sideLength = sideLength;
+      steps = 0;
+      rotateCount = 0;
+    }
   }
   
   /**
@@ -28,6 +31,13 @@ public abstract class ShapeBug extends Bug {
       rotateCount++;
     }
   }
+  
+  /**
+   * Turn the bug the given number of times. <br />
+   * NOTE: This functionality is made redundant by the <code>setDirection</code> method...
+   * @param numTurns the number of turns the bug should make
+   */
+  public void turn(int numTurns) { for (int i=0; i<numTurns; i++) this.turn(); }
   
   /**
    * Determine whether or not the bug should continue to move, if
