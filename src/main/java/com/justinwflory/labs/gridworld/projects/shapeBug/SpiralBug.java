@@ -1,9 +1,8 @@
+import info.gridworld.actor.Actor;
 import info.gridworld.actor.Bug;
+import info.gridworld.grid.*;
 
 public class SpiralBug extends ShapeBug {
-  private int steps;
-  private int sideLength;
-  
   /**
    * Constructs a spiral bug that traces a spiral until it is impossible to grow larger
    * @param length the side length
@@ -13,17 +12,27 @@ public class SpiralBug extends ShapeBug {
   }
   
   /**
-   * Moves to the next location of the circle.
+   * Method for determining whether the spiral has reached the end of its side, thereby determining
+   * whether or not it has to turn its direction.
    */
-  public void act() {
-    if (steps < sideLength && canMove()) {
-      move();
-      steps++;
-    } else {
-      turn();
-      turn();
-      steps = 0;
-      sideLength++;
-    }
+  public void endOfSide() {
+    turn();
+    turn();
+    setSideLength(getSideLength() + 1);
+  }
+  
+  /**
+   * Checks to see if the next location is a valid move.
+   * @return <code>true</code> if the next location is empty,
+   * <code>false</code> if occupied by another Actor
+   */
+  public boolean nextMove() {
+    Grid<Actor> curGrid = getGrid();
+    if (curGrid == null) return false;
+    Location loc = getLocation();
+    Location next = loc.getAdjacentLocation(getDirection());
+    if (!curGrid.isValid(next)) return false;
+    Actor neighbor = curGrid.get(next);
+    return (neighbor == null);
   }
 }

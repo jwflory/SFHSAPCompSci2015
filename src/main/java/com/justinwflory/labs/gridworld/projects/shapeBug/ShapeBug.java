@@ -27,8 +27,8 @@ public abstract class ShapeBug extends Bug {
       steps++;
     } else {
       endOfSide();
-      steps = 0;
-      rotateCount++;
+      //steps = 0;
+      //rotateCount++;
     }
   }
   
@@ -78,7 +78,21 @@ public abstract class ShapeBug extends Bug {
   /**
    * Set the value in <code>sideLength</code>.
    */
+  public void setRotateCount(int rotateCount) {
+    this.rotateCount = rotateCount;
+  }
+  
+  /**
+   * Set the value in <code>sideLength</code>.
+   */
   public void setSideLength(int sideLength) {
     this.sideLength = sideLength;
+  }
+  
+  /**
+   * Set the value in <code>steps</code>.
+   */
+  public void setSteps(int steps) {
+    this.steps = steps;
   }
 }
