@@ -7,7 +7,7 @@ import info.gridworld.grid.*;
  * This class runs a world that contains all bugs.
  */
 public class AllBugRunner implements Colors {
-  private static final boolean SAFETY = false;
+  private static final boolean SAFETY = true;
   
   public static void main(String[] args) {
     UnboundedGrid<Actor> grid = new UnboundedGrid<Actor>();
