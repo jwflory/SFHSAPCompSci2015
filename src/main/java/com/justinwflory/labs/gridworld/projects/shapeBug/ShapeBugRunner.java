@@ -7,7 +7,7 @@ import info.gridworld.grid.*;
  * This class runs a world that contains all bugs.
  */
 public class ShapeBugRunner implements Colors {
-  private static final boolean SAFETY = true;
+  private static final boolean SAFETY = false;
   
   public static void main(String[] args) {
     UnboundedGrid<Actor> grid = new UnboundedGrid<Actor>();
@@ -47,12 +47,12 @@ public class ShapeBugRunner implements Colors {
     custom2.setColor(colors[(int) (Math.random() * colors.length)]);
     Rock customRock = new Rock(colors[(int) (Math.random() * colors.length)]);
     
-    NewCustomBug newCustom1 = new NewCustomBug(5);
-    newCustom1.setColor(colors[(int) (Math.random() * colors.length)]);
+    //NewCustomBug newCustom1 = new NewCustomBug(5);
+    //newCustom1.setColor(colors[(int) (Math.random() * colors.length)]);
     
-    NewCustomBug newCustom2 = new NewCustomBug(14);
-    newCustom2.setColor(colors[(int) (Math.random() * colors.length)]);
-    Rock newCustomRock = new Rock(colors[(int) (Math.random() * colors.length)]);
+    //NewCustomBug newCustom2 = new NewCustomBug(14);
+    //newCustom2.setColor(colors[(int) (Math.random() * colors.length)]);
+    //Rock newCustomRock = new Rock(colors[(int) (Math.random() * colors.length)]);
     
     world.add(new Location(7, 8), box1);
     world.add(new Location(5, 5), box2);
@@ -65,12 +65,12 @@ public class ShapeBugRunner implements Colors {
     world.add(new Location(20, 35), z1);
     world.add(new Location(35, 60), z2);
     world.add(new Location(53, 69), zRock);  
-    world.add(new Location(25, 5), custom1);
-    world.add(new Location(70, 70), custom2);
-    world.add(new Location(22, 5), customRock);
-    world.add(new Location(90, 70), newCustom1);
-    world.add(new Location(70, 90), newCustom2);
-    world.add(new Location(80, 80), newCustomRock);
+   // world.add(new Location(25, 5), custom1);
+    //world.add(new Location(70, 70), custom2);
+    //world.add(new Location(22, 5), customRock);
+    //world.add(new Location(90, 70), newCustom1);
+    //world.add(new Location(70, 90), newCustom2);
+    //world.add(new Location(80, 80), newCustomRock);
     if (SAFETY) for (int i=0; i<200; i++) world.add(new Location(0, i), new Rock());
 
     world.show();

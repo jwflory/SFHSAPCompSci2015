@@ -27,8 +27,8 @@ public abstract class ShapeBug extends Bug {
       steps++;
     } else {
       endOfSide();
-      //steps = 0;
-      //rotateCount++;
+      steps = 0;
+      rotateCount++;
     }
   }
   
