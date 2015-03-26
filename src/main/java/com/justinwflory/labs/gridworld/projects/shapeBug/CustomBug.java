@@ -19,20 +19,34 @@ public class CustomBug extends ShapeBug {
     halfSideLength = getSideLength() / 2;
   }
   
+  /**
+   * Right now, this method is fighting the act() method of the abstract class that it extends. Because in line 25:
+   * 
+   * if (canMove() && steps < sideLength && keepMoving()) {
+   * 
+   * We are moving the bug the given number of times when the steps are less than the sidelength. I don't know how to
+   * override this action. I know there is the @Override annotation, but that would have to be done for an act() method
+   * inside of this class, but that would require me to write an entirely new method and thus defeat the purpose of
+   * abstraction altogether.
+   * 
+   * How can I override that conditional without upsetting all of my other bugs, rewriting it from scratch in this
+   * class, and/or abandoning the idea of abstraction?
+   */
   public void endOfSide() {
-    if (getRotateCount() < 3 || getRotateCount() == 5) {
+    if (getRotateCount() == 4 && getSteps() < halfSideLength) {
+      setDirection(270);
+      if (DEBUG) System.out.println("when getRotateCount() == 4, setDirection(270) (3rd cond): " + getRotateCount());
+    } else if (getRotateCount() < 3 || getRotateCount() == 6) {
       directTurn();
-      if (DEBUG) System.out.println(getRotateCount());
-    } else if (getRotateCount() == 3 || getRotateCount() == 4) {
+      if (DEBUG) System.out.println("directTurn() (1st cond): " + getRotateCount());
+    } else if (getRotateCount() == 3 || getRotateCount() == 5) {
       if (getRotateCount() == 3) this.setDirection(0);
       diagonalTurn();
-      if (getSteps() >= halfSideLength) {
-        if (getRotateCount() == 3) diagonalTurn();
-        else this.setDirection(90);
-      }
-      if (getRotateCount() > 5) setRotateCount(0);
+      if (DEBUG) System.out.println("diagonalTurn() (2nd cond): " + getRotateCount());
     }
-    if (DEBUG) System.out.println(getRotateCount());
+    if (getRotateCount() > 5) setRotateCount(0);
+    if (DEBUG) System.out.println("End of method: " + getRotateCount());
+  }
     
     /*
      if ((getRotateCount() == 4 || getRotateCount() == 6 || getRotateCount() == 8) && canMove() && getSteps() < doubleSideLength && canMove()) {
@@ -54,7 +68,6 @@ public class CustomBug extends ShapeBug {
      if (DEBUG) System.out.println("Now reset: " + getRotateCount());
      }
      */
-  }
   
   public void directTurn() {
     setDirection(getDirection() + 90);

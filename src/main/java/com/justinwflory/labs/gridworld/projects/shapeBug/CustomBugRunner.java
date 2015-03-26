@@ -11,14 +11,14 @@ public class CustomBugRunner implements Colors {
     UnboundedGrid<Actor> grid = new UnboundedGrid<Actor>();
     ActorWorld world = new ActorWorld(grid);
     
-    CustomBug custom1 = new CustomBug(3);
+    CustomBug custom1 = new CustomBug(4);
     custom1.setColor(colors[(int) (Math.random() * colors.length)]);
     
-    CustomBug custom2 = new CustomBug(11);
+    CustomBug custom2 = new CustomBug(12);
     custom2.setColor(colors[(int) (Math.random() * colors.length)]);
 
-    //world.add(new Location(10, 5), custom1);
-    world.add(new Location(35, 40), custom2);
+    world.add(new Location(35, 45), custom1);
+    world.add(new Location(15, 25), custom2);
     
     world.show();
   }
